@@ -15,14 +15,14 @@ pipeline {
         stage('Compile') {
             steps {
                 echo 'Compilation de BuggyJavaApp.java'
-                sh 'javac BuggyJavaApp.java'
+                bat 'javac BuggyJavaApp.java'
             }
         }
 
         stage('Sonar-Scanner') {
             steps {
                 withSonarQubeEnv('SQ1') {
-                    sh 'sonar-scanner'
+                    bat 'sonar-scanner'
                 }
             }
         }
